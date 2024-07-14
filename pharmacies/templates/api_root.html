@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Root</title>
+  </head>
+  <body>
+    <h1>API Root</h1>
+    <ul>
+      {% if request.user.is_authenticated %} {% if request.user.is_superuser %}
+      <li><a href="{% url 'pays-list' %}">Pays</a></li>
+      <li><a href="{% url 'villes-list' %}">Villes</a></li>
+      <li><a href="{% url 'assurances-list' %}">Assurances</a></li>
+      <li><a href="{% url 'categories-list' %}">Categories</a></li>
+      <li><a href="{% url 'pharmacies-list' %}">Pharmacies</a></li>
+      <li>
+        <a href="{% url 'produits-pharmaceutiques-list' %}"
+          >Produits Pharmaceutiques</a
+        >
+      </li>
+      {% endif %} {% endif %} 
+    </ul>
+  </body>
+</html>

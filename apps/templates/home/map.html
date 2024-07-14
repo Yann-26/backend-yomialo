@@ -1,0 +1,103 @@
+{% extends 'layouts/base.html' %} {% block title %} Icons {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<!-- Header -->
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <center><h1>Gestion des coursiers</h1></center>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Liste des coursiers</h3>
+            </div>
+            <div class="col text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Ajouter uu coursier</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Nom</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Localisation</th>
+                <th scope="col">Numero CNI</th>
+                <th scope="col">Statut</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <a href="#" class="avatar rounded-circle mr-3">
+                    <img
+                      alt="Image placeholder"
+                      src="/static/assets/img/theme/bootstrap.jpg"
+                    />
+                  </a>
+                </th>
+                <th scope="row">Habib Dosso</th>
+                <td>07884050</td>
+                <td>Residentiel</td>
+                <td>CI005257885</td>
+                <td><span class="badge badge-dot mr-4">
+                      <i class="bg-success"></i>
+                      <span class="status">Verifié</span>
+                    </span></td>
+
+                <td>
+                  <div class="dropdown">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a class="dropdown-item" href="#">Voir +</a>
+                      <a class="dropdown-item" href="#">Modifier</a>
+                      <a class="dropdown-item" href="#">Supprimer</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+           
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+
+<script src="/static/assets/vendor/clipboard/dist/clipboard.min.js"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,114 @@
+[
+    {
+        "name": "Pharmacie Bonoua",
+        "location": "Route A100, en face de l'hôpital",
+        "ouverture": "08h00",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "No contact found",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Bonoua",
+            "entreprise": "Entreprise Bonoua",
+            "numero": "12345"
+        }
+    },
+    {
+        "name": "Pharmacie EDEN",
+        "location": "Non loin de la Mosquée",
+        "ouverture": "07h30",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "0758094667",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Eden",
+            "entreprise": "Entreprise Eden",
+            "numero": "67890"
+        }
+    },
+    {
+        "name": "Pharmacie du Gd-Marché",
+        "location": "Ancien marché de Bonoua",
+        "ouverture": "07h30",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "No contact found",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Marché",
+            "entreprise": "Entreprise Marché",
+            "numero": "54321"
+        }
+    },
+    {
+        "name": "Pharmacie De L'Orée",
+        "location": "Route A100",
+        "ouverture": "07h00",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "+22521300837",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance L'Orée",
+            "entreprise": "Entreprise L'Orée",
+            "numero": "98765"
+        }
+    },
+    {
+        "name": "Pharmacie Ebenezer",
+        "location": "Route A100, non loin de la gare routière",
+        "ouverture": "07h30",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "No contact found",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Ebenezer",
+            "entreprise": "Entreprise Ebenezer",
+            "numero": "11223"
+        }
+    },
+    {
+        "name": "ARC-EN-CIEL- NATURE",
+        "location": "No location found",
+        "ouverture": "08h00",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "No contact found",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Nature",
+            "entreprise": "Entreprise Nature",
+            "numero": "33445"
+        }
+    },
+    {
+        "name": "Pharmacie Ste Rita",
+        "location": "Bégnieri, carrefour du collège sainte rita",
+        "ouverture": "07h00",
+        "fermeture": "20h00",
+        "latitude": "0",
+        "longitude": "0",
+        "contact": "No contact found",
+        "pharmacien": "",
+        "image": "",
+        "assurance": {
+            "nom": "Assurance Ste Rita",
+            "entreprise": "Entreprise Ste Rita",
+            "numero": "55667"
+        }
+    }
+]
