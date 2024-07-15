@@ -12,7 +12,8 @@ CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+# DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = True
 
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1'), '*']
@@ -42,7 +43,7 @@ DEFAULTS_APPS = [
 CUSTOM_APPS = [
     'apps',  # Enable the inner home (home)
     'ChatBot',
-    'pharmacies',
+    'pharmacies.apps.PharmaciesConfig',
     'authentication.apps.AuthenticationConfig',
     'coursier.apps.CoursierConfig',
     'payement.apps.PayementConfig',
@@ -68,12 +69,18 @@ DJANGO_APPS_PACKAGES = [
 INSTALLED_APPS = DEFAULTS_APPS + DJANGO_APPS_PACKAGES + CUSTOM_APPS 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://192.168.203.68",
+    "http://192.168.210.68",
     "http://127.0.0.1",
     'http://localhost',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
 
 
 MIDDLEWARE = [
@@ -95,7 +102,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'core.urls'
 LOGIN_REDIRECT_URL = "home"  # Route defined in home/urls.py
 LOGOUT_REDIRECT_URL = "home"  # Route defined in home/urls.py
-TEMPLATE_DIR = os.path.join(CORE_DIR, "apps/templates")  # ROOT dir for templates
+TEMPLATE_DIR = os.path.join(CORE_DIR, "templates")  # ROOT dir for templates
 
 TEMPLATES = [
     {

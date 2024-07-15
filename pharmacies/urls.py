@@ -13,6 +13,6 @@ router.register(r'pharmacies', PharmaciesViewSet, basename='pharmacies')
 
 
 urlpatterns = [
-    path('api-root1/', api_root, name='pharmacies-api-root'),
+ 
     path('', include(router.urls)),
 ]

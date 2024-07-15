@@ -1,4 +1,3 @@
-import random
 from rest_framework import generics
 from .models import User
 from .serializers import *
@@ -7,10 +6,7 @@ from django.contrib.auth import  logout, authenticate
 from rest_framework import  status
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
-from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework.response import Response
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 
