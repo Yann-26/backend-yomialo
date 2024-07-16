@@ -45,11 +45,14 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
     recto_card_image = serializers.ImageField(required=True)
     verso_card_image = serializers.ImageField(required=True)
     selfie_image = serializers.ImageField(required=True)
+    date_naissance = serializers.DateField(required=True)
+    lieu_naissance = serializers.CharField(max_length=255, required=True)
 
     class Meta:
         model = User
         fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name',
-                  'quarier', 'phone_number', 'address', 'recto_card_image', 'verso_card_image', 'selfie_image')
+                  'quarier', 'phone_number', 'address', 'recto_card_image', 'verso_card_image', 'selfie_image',
+                  'date_naissance', 'lieu_naissance')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -80,12 +83,15 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
             recto_card_image=validated_data['recto_card_image'],
             verso_card_image=validated_data['verso_card_image'],
             selfie_image=validated_data['selfie_image'],
+            date_naissance=validated_data['date_naissance'],
+            lieu_naissance=validated_data['lieu_naissance'],
         )
         # Envoyer l'e-mail de confirmation
         send_mail_after_registration(user.email, user.auth_token)
         coursier.save()
 
         return user
+
 
 
 

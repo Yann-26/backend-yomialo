@@ -17,6 +17,8 @@ class Coursier(models.Model):
     recto_card_image = models.ImageField(upload_to=user_directory_path)
     verso_card_image = models.ImageField(upload_to=user_directory_path)
     selfie_image = models.ImageField(upload_to=user_directory_path)
+    lieu_naissance = models.CharField(max_length= 150)
+    date_naissance = models.DateField()
     is_verified = models.BooleanField(default=False)
     auth_token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
