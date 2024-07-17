@@ -1,3 +1,4 @@
+import uuid
 from .models import Coursier
 from authentication.models import User
 from rest_framework.validators import UniqueValidator
@@ -8,6 +9,8 @@ from django.contrib.auth import authenticate
 import re
 from .utils import send_mail_after_registration
 from django.contrib.auth.models import Group
+import base64
+from django.core.files.base import ContentFile
 
 
 
@@ -60,7 +63,14 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        # Créer l'utilisateur
+        recto_card_image_data = validated_data.pop('recto_card_image')
+        verso_card_image_data = validated_data.pop('verso_card_image')
+        selfie_image_data = validated_data.pop('selfie_image')
+
+        recto_card_image = ContentFile(base64.b64decode(recto_card_image_data), name='recto.jpg')
+        verso_card_image = ContentFile(base64.b64decode(verso_card_image_data), name='verso.jpg')
+        selfie_image = ContentFile(base64.b64decode(selfie_image_data), name='selfie.jpg')
+
         user = User.objects.create(
             username=validated_data['username'],
             email=validated_data['email'],
@@ -70,28 +80,24 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         
-        # Ajouter l'utilisateur au groupe 'Coursiers'
-        coursier_group = Group.objects.get(name='Coursiers')
-        user.groups.add(coursier_group)
-
-        # Créer le coursier associé
+        auth_token = str(uuid.uuid4())
         coursier = Coursier.objects.create(
             user=user,
             quartier=validated_data['quartier'],
             phone_number=validated_data['phone_number'],
             address=validated_data['address'],
-            recto_card_image=validated_data['recto_card_image'],
-            verso_card_image=validated_data['verso_card_image'],
-            selfie_image=validated_data['selfie_image'],
+            recto_card_image=recto_card_image,
+            verso_card_image=verso_card_image,
+            selfie_image=selfie_image,
             date_naissance=validated_data['date_naissance'],
             lieu_naissance=validated_data['lieu_naissance'],
+            auth_token=auth_token
         )
-        # Envoyer l'e-mail de confirmation
-        send_mail_after_registration(user.email, user.auth_token)
         coursier.save()
+        send_mail_after_registration(user.email, auth_token)
+        
 
         return user
-
 
 
 
