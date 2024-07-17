@@ -11,7 +11,7 @@ def user_directory_path(instance, filename):
 # Create your models here.
 class Coursier(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quarier = models.CharField(max_length=120)
+    quartier = models.CharField(max_length=120)
     phone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
     recto_card_image = models.ImageField(upload_to=user_directory_path)

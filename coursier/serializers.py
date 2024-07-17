@@ -39,7 +39,7 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True, required=True)
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    quarier = serializers.CharField(max_length=120, required=True)
+    quartier = serializers.CharField(max_length=120, required=True)
     phone_number = serializers.CharField(max_length=20, required=True)
     address = serializers.CharField(max_length=255, required=True)
     recto_card_image = serializers.ImageField(required=True)
@@ -51,7 +51,7 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name',
-                  'quarier', 'phone_number', 'address', 'recto_card_image', 'verso_card_image', 'selfie_image',
+                  'quartier', 'phone_number', 'address', 'recto_card_image', 'verso_card_image', 'selfie_image',
                   'date_naissance', 'lieu_naissance')
 
     def validate(self, attrs):
@@ -77,7 +77,7 @@ class RegisterCoursierSerializer(serializers.ModelSerializer):
         # Créer le coursier associé
         coursier = Coursier.objects.create(
             user=user,
-            quarier=validated_data['quarier'],
+            quartier=validated_data['quartier'],
             phone_number=validated_data['phone_number'],
             address=validated_data['address'],
             recto_card_image=validated_data['recto_card_image'],
